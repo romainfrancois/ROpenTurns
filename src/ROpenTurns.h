@@ -1,26 +1,23 @@
-// ROpenTurns.h: ROpenTurns
-//
-// Copyright (C) 2012    IRSN
-//
-// This file is part of ROpenTurns.
-//
-// ROpenTurns is free software: you can redistribute it and/or modify it
-// under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 2 of the License, or
-// (at your option) any later version.
-//
-// ROpenTurns is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with ROpenTurns.  If not, see <http://www.gnu.org/licenses/>.
-
 #ifndef ROPENTURNS_ROPENTURNS_H
 #define ROPENTURNS_ROPENTURNS_H
 
+// fix for Rcpp <= 0.11.0
+#ifndef Rcpp__traits__un_pointer__h
+#define Rcpp__traits__un_pointer__h
+namespace Rcpp{
+namespace traits{   
+	
+template <typename T> struct un_pointer { typedef T type ;} ;
+template <typename T> struct un_pointer<T*> { typedef T type ;} ;
+template <typename T> struct un_pointer< object<T> > { typedef T type ;} ;
+
+} // namespace traits
+} // namespace Rcpp
+#endif
+
+
 #include <Rcpp.h>
+
 /* otherwise include Log.hxx bombs */
 #undef ERROR
 #undef WARN
