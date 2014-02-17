@@ -28,7 +28,7 @@ static Factory<RNumericalMathEvaluationImplementation> RegisteredFactory("RNumer
 /* Default constructor */
 RNumericalMathEvaluationImplementation::RNumericalMathEvaluationImplementation()
   : NumericalMathEvaluationImplementation()
-{
+{                                           
   // Nothing to do
 }
 
@@ -59,9 +59,8 @@ String RNumericalMathEvaluationImplementation::__repr__() const {
 }
 
 /* Test for actual implementation */
-Bool RNumericalMathEvaluationImplementation::isActualImplementation() const
-{
-  return false;
+Bool RNumericalMathEvaluationImplementation::isActualImplementation() const {
+  return true;
 }
 
 
@@ -75,7 +74,8 @@ NumericalPoint RNumericalMathEvaluationImplementation::operator() (const Numeric
   ++callsNumber_;
   
   Rcpp::NumericVector R_input( inP.begin(), inP.end() ) ;
-  Rcpp::NumericVector R_output = fun( R_input ) ;
+  Rcpp::Function fun_(fun) ;
+  Rcpp::NumericVector R_output = fun_( R_input ) ;
   NumericalPoint result( Collection<NumericalScalar>( R_output.begin(), R_output.end() ) ) ;
   
   if (isHistoryEnabled_)

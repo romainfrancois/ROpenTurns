@@ -64,7 +64,7 @@ public:
 
 private:
     
-    Rcpp::Function fun ;
+    Rcpp::RObject fun ;
     UnsignedLong inputDimension ;
     UnsignedLong outputDimension ;
     
