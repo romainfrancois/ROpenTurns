@@ -5,6 +5,9 @@
 #ifndef Rcpp__traits__un_pointer__h
 #define Rcpp__traits__un_pointer__h
 namespace Rcpp{
+
+template <typename T> class object ;
+  
 namespace traits{   
 	
 template <typename T> struct un_pointer { typedef T type ;} ;
