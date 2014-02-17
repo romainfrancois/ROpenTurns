@@ -1,0 +1,27 @@
+language: c
+services: PostgreSQL
+
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+  # install open turns lib
+  - lsb_release -c
+  - curl http://debian.openturns.org/openturns.org-repo.key | sudo apt-key add -
+  - echo "deb http://ubuntu.openturns.org precise main" >> /etc/apt/sources.list
+  - apt-get install libopenturns-dev
+  
+install:
+  - if [ "$RCPP" = "release" ]; then ./travis-tool.sh r_binary_install Rcpp; fi
+  - if [ "$RCPP" = "devel" ]; then ./travis-tool.sh github_package RcppCore/Rcpp; fi
+  - ./travis-tool.sh install_deps
+
+script: ./travis-tool.sh run_tests
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+env:
+  - RCPP=release
+  - RCPP=devel
