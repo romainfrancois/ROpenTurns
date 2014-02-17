@@ -8,7 +8,7 @@ before_install:
   # install open turns lib
   - lsb_release -c
   - curl http://debian.openturns.org/openturns.org-repo.key | sudo apt-key add -
-  - echo "deb http://ubuntu.openturns.org precise main" >> /etc/apt/sources.list
+  - sudo echo "deb http://ubuntu.openturns.org precise main" >> /etc/apt/sources.list
   - apt-get install libopenturns-dev
   
 install:
@@ -24,4 +24,4 @@ notifications:
     on_failure: change
 env:
   - RCPP=release
-  - RCPP=devel
+  # - RCPP=devel
