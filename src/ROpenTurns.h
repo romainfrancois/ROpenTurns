@@ -119,14 +119,11 @@ namespace ROpenTurns{
     NearestPointAlgorithm* new_NearestPointAlgorithm( SEXP obj ) ;
     Solver* new_Solver( SEXP obj ) ;
     
-} // namespace ROpenTurns
-
-BEGIN_NAMESPACE_OPENTURNS
-typedef Collection<NumericalPointWithDescription> NumericalPointWithDescriptionCollection ;
-typedef Collection<NumericalPoint> NumericalPointCollection ;
-typedef Collection<Distribution> DistributionCollection ;
-typedef Collection<Copula> CopulaCollection ;
-END_NAMESPACE_OPENTURNS
+    typedef Collection<NumericalPointWithDescription> NumericalPointWithDescriptionCollection ;
+    typedef Collection<NumericalPoint> NumericalPointCollection ;
+    typedef Collection<Distribution> DistributionCollection ;
+    typedef Collection<Copula> CopulaCollection ;
+}
 
 #include <openturns/NumericalPoint.hxx>
 #include <openturns/CorrelationMatrix.hxx>

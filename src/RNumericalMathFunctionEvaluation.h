@@ -1,6 +1,6 @@
 // RNumericalMathFunctionEvaluation.h: ROpenTurns
 //
-// Copyright (C) 2012    IRSN
+// Copyright (C) 2012 - 2014   IRSN
 //
 // This file is part of ROpenTurns.
 //
@@ -23,54 +23,54 @@
 #include "ROpenTurns.h"
 #include <openturns/NumericalMathEvaluationImplementation.hxx>
 
-BEGIN_NAMESPACE_OPENTURNS
+namespace ROpenTurns {
 
-class RNumericalMathEvaluationImplementation
-    : public NumericalMathEvaluationImplementation
-{
-    CLASSNAME ;
+    class RNumericalMathEvaluationImplementation
+        : public NumericalMathEvaluationImplementation
+    {
+        CLASSNAME ;
+        
+    public:
+        
+        /** Default Constructor */
+        RNumericalMathEvaluationImplementation() ;
+        
+        RNumericalMathEvaluationImplementation(Rcpp::Function fun_, UnsignedLong inputDimension_, UnsignedLong outputDimension_ ) ;
+        
+        /** Virtual constructor */
+        virtual RNumericalMathEvaluationImplementation * clone() const;
+        
+        /** Comparison operator */
+        Bool operator ==(const RNumericalMathEvaluationImplementation & other) const;
+        
+        /** String converter */
+        virtual OT::String __repr__() const;
+        
+        
+        /** Test for actual implementation */
+        virtual Bool isActualImplementation() const;
+        
+        
+        /* Here is the interface that all derived class must implement */
+        
+        /** Operator () */
+        virtual NumericalPoint operator() (const NumericalPoint & inP) const;
+        
+        /** Accessor for input point dimension */
+        virtual UnsignedLong getInputDimension() const;
+        
+        /** Accessor for output point dimension */
+        virtual UnsignedLong getOutputDimension() const;
     
-public:
-    
-    /** Default Constructor */
-    RNumericalMathEvaluationImplementation() ;
-    
-    RNumericalMathEvaluationImplementation(Rcpp::Function fun_, UnsignedLong inputDimension_, UnsignedLong outputDimension_ ) ;
-    
-    /** Virtual constructor */
-    virtual RNumericalMathEvaluationImplementation * clone() const;
-    
-    /** Comparison operator */
-    Bool operator ==(const RNumericalMathEvaluationImplementation & other) const;
-    
-    /** String converter */
-    virtual OT::String __repr__() const;
-    
-    
-    /** Test for actual implementation */
-    virtual Bool isActualImplementation() const;
-    
-    
-    /* Here is the interface that all derived class must implement */
-    
-    /** Operator () */
-    virtual NumericalPoint operator() (const NumericalPoint & inP) const;
-    
-    /** Accessor for input point dimension */
-    virtual UnsignedLong getInputDimension() const;
-    
-    /** Accessor for output point dimension */
-    virtual UnsignedLong getOutputDimension() const;
+    private:
+        
+        Rcpp::RObject fun ;
+        UnsignedLong inputDimension ;
+        UnsignedLong outputDimension ;
+        
+    } ;
 
-private:
-    
-    Rcpp::RObject fun ;
-    UnsignedLong inputDimension ;
-    UnsignedLong outputDimension ;
-    
-} ;
-
-
-END_NAMESPACE_OPENTURNS
+  
+}
 
 #endif
