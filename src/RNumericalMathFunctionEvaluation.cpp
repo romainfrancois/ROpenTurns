@@ -19,7 +19,7 @@
 
 #include "ROpenTurns.h"
 
-namespace ROpenTurns {
+namespace OT {
 
     CLASSNAMEINIT(RNumericalMathEvaluationImplementation);
     
