@@ -1,24 +1,6 @@
 #ifndef ROPENTURNS_ROPENTURNS_H
 #define ROPENTURNS_ROPENTURNS_H
 
-// fix for Rcpp <= 0.11.0
-#ifndef Rcpp__traits__un_pointer__h
-#define Rcpp__traits__un_pointer__h
-namespace Rcpp{
-
-template <typename T> class object ;
-  
-namespace traits{   
-	
-template <typename T> struct un_pointer { typedef T type ;} ;
-template <typename T> struct un_pointer<T*> { typedef T type ;} ;
-template <typename T> struct un_pointer< object<T> > { typedef T type ;} ;
-
-} // namespace traits
-} // namespace Rcpp
-#endif
-
-
 #include <Rcpp.h>
 
 /* otherwise include Log.hxx bombs */
