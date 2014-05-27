@@ -56,20 +56,19 @@ namespace ROpenTurns{
         return R_NilValue ;
     }
     
-    NumericalSample (DistributionImplementation::*DistributionImplementation_computePDF_4)(const NumericalScalar, const NumericalScalar, const UnsignedLong, const NumericalScalar) const = &DistributionImplementation::computePDF ;
-    NumericalSample (DistributionImplementation::*DistributionImplementation_computeCDF_5)(const NumericalScalar, const NumericalScalar, const UnsignedLong, const NumericalScalar, const Bool) const = &DistributionImplementation::computeCDF ;
+    NumericalSample (DistributionImplementation::*DistributionImplementation_computePDF_5)(const NumericalScalar, const NumericalScalar, const UnsignedLong, NumericalSample &, const NumericalScalar ) const = &DistributionImplementation::computePDF ;
        
-    NumericalComplex DistributionImplementation_computeCharacteristicFunction_2(DistributionImplementation* obj, const NumericalScalar x, const Bool logScale){
-        return obj->computeCharacteristicFunction(x, logScale ) ;
+    NumericalComplex DistributionImplementation_computeCharacteristicFunction_2(DistributionImplementation* obj, const NumericalScalar x){
+        return obj->computeCharacteristicFunction(x ) ;
     }
     
-    SEXP DistributionImplementation_computeGeneratingFunction_2( DistributionImplementation* obj, SEXP z, Bool logScale = false ){
+    SEXP DistributionImplementation_computeGeneratingFunction_1( DistributionImplementation* obj, SEXP z ){
         if( TYPEOF(z) == INTSXP || TYPEOF(z) == REALSXP ){
-            return wrap( obj->computeGeneratingFunction( as<double>( z ), logScale ) );
+            return wrap( obj->computeGeneratingFunction( as<double>( z )  ) );
         }
         
         // assuming complex
-        return wrap( obj->computeGeneratingFunction( as<NumericalComplex>( z ), logScale ) ) ;
+        return wrap( obj->computeGeneratingFunction( as<NumericalComplex>( z ) ) ) ;
     }
     
     SEXP DistributionImplementation_computeQuantile_2(DistributionImplementation* obj, SEXP prob, Bool tail = false ){
@@ -97,10 +96,10 @@ namespace ROpenTurns{
     
     object<DistributionImplementation> DistributionImplementation_getMarginal_1( DistributionImplementation* obj, SEXP indices ) {
         if( ( TYPEOF(indices) == INTSXP || TYPEOF(indices) == REALSXP ) && Rf_length(indices) == 1 ){
-            return obj->getMarginal( as<int>( indices ) ) ;
+            return obj->getMarginal( as<int>( indices ) ).get() ;
         }
         if( Rf_inherits( indices, "Rcpp_Indices" ) ){
-            return obj->getMarginal( as<Indices>( indices ) ) ;    
+            return obj->getMarginal( as<Indices>( indices ) ).get() ;    
         }
         Rf_error( "indices should be a int of length 1 or an instance of Indices" ) ;
     }
@@ -128,13 +127,13 @@ RCPP_MODULE(Distribution){
         .method( "computeDDF", ROpenTurns::DistributionImplementation_computeDDF )     
         
         .method( "computePDF", ROpenTurns::DistributionImplementation_computePDF )     
-        .method( "computePDF", ROpenTurns::DistributionImplementation_computePDF_4 )
+        .method( "computePDF", ROpenTurns::DistributionImplementation_computePDF_5 )
         
         .method( "computeCDF", ROpenTurns::DistributionImplementation_computeCDF )     
-        .method( "computeCDF", ROpenTurns::DistributionImplementation_computeCDF_5 )     
+        // .method( "computeCDF", ROpenTurns::DistributionImplementation_computeCDF_5 )     
         
         .method( "computeCharacteristicFunction", ROpenTurns::DistributionImplementation_computeCharacteristicFunction_2 )
-        .method( "computeGeneratingFunction", ROpenTurns::DistributionImplementation_computeGeneratingFunction_2 )
+        .method( "computeGeneratingFunction", ROpenTurns::DistributionImplementation_computeGeneratingFunction_1 )
         
         .method( "computeQuantile", ROpenTurns::DistributionImplementation_computeQuantile_2 )
         .method( "computeQuantile", ROpenTurns::DistributionImplementation_computeQuantile_5 )     
