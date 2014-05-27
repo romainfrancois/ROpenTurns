@@ -71,17 +71,17 @@ namespace OT {
     NumericalPoint RNumericalMathEvaluationImplementation::operator() (const NumericalPoint & inP) const
     {
       if (inP.getDimension() != inputDimension) throw InvalidArgumentException(HERE) << "Error: the given point has an invalid dimension. Expect a dimension " << inputDimension << ", got " << inP.getDimension();
-      
+      ++callsNumber_ ;
       Rcpp::NumericVector R_input( inP.begin(), inP.end() ) ;
       Rcpp::Function fun_(fun) ;
       Rcpp::NumericVector R_output = fun_( R_input ) ;
       NumericalPoint result( Collection<NumericalScalar>( R_output.begin(), R_output.end() ) ) ;
       
-      // if (isHistoryEnabled_)
-      //   {
-      //     inputStrategy_.store(inP);
-      //     outputStrategy_.store(result);
-      //   }
+      if (isHistoryEnabled_)
+        {
+          inputStrategy_.store(inP);
+          outputStrategy_.store(result);
+        }
       return result;
     }
     
