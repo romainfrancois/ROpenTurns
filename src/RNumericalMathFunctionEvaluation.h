@@ -26,7 +26,7 @@
 namespace OT {
 
     class RNumericalMathEvaluationImplementation
-        : public NumericalMathFunctionImplementation
+        : public NumericalMathEvaluationImplementation
     {
         CLASSNAME ;
 

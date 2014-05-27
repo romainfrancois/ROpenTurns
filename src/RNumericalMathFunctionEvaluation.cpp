@@ -27,13 +27,13 @@ namespace OT {
     
     /* Default constructor */
     RNumericalMathEvaluationImplementation::RNumericalMathEvaluationImplementation()
-      : NumericalMathFunctionImplementation()
+      : NumericalMathEvaluationImplementation()
     {                                           
       // Nothing to do
     }
     
     RNumericalMathEvaluationImplementation::RNumericalMathEvaluationImplementation(Rcpp::Function fun_, UnsignedLong inputDimension_, UnsignedLong outputDimension_ )
-    : NumericalMathFunctionImplementation(), fun(fun_), inputDimension(inputDimension_), outputDimension(outputDimension_)
+    : NumericalMathEvaluationImplementation(), fun(fun_), inputDimension(inputDimension_), outputDimension(outputDimension_)
     {
        // Nothing to do 
     }    
