@@ -41,7 +41,7 @@ RCPP_MODULE(HistoryStrategy){
         .factory( &ROpenTurns::new_HistoryStrategy ) 
         SHOW(HistoryStrategy)
         METHOD( HistoryStrategy, getSample )
-        METHOD( HistoryStrategy, reset )
+        METHOD( HistoryStrategy, clear )
     ;
     
 }
