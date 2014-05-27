@@ -118,7 +118,9 @@ namespace ROpenTurns{
     Experiment* new_Experiment( SEXP obj, OT::String name) ;
     NearestPointAlgorithm* new_NearestPointAlgorithm( SEXP obj ) ;
     Solver* new_Solver( SEXP obj ) ;
-    
+}
+
+namespace OT {
     typedef Collection<NumericalPointWithDescription> NumericalPointWithDescriptionCollection ;
     typedef Collection<NumericalPoint> NumericalPointCollection ;
     typedef Collection<Distribution> DistributionCollection ;
