@@ -120,12 +120,12 @@ namespace ROpenTurns{
     Solver* new_Solver( SEXP obj ) ;
 }
 
-namespace OT {
+BEGIN_NAMESPACE_OPENTURNS
     typedef Collection<NumericalPointWithDescription> NumericalPointWithDescriptionCollection ;
     typedef Collection<NumericalPoint> NumericalPointCollection ;
     typedef Collection<Distribution> DistributionCollection ;
     typedef Collection<Copula> CopulaCollection ;
-}
+END_NAMESPACE_OPENTURNS
 
 #include <openturns/NumericalPoint.hxx>
 #include <openturns/CorrelationMatrix.hxx>

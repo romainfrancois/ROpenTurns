@@ -23,7 +23,7 @@
 #include "ROpenTurns.h"
 #include <openturns/NumericalMathEvaluationImplementation.hxx>
 
-namespace OT {
+BEGIN_NAMESPACE_OPENTURNS
 
     class RNumericalMathEvaluationImplementation
         : public NumericalMathEvaluationImplementation
@@ -70,7 +70,6 @@ namespace OT {
 
     } ;
 
-
-}
+END_NAMESPACE_OPENTURNS
 
 #endif
