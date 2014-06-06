@@ -20,9 +20,6 @@
 #ifndef ROPENTURNS_R_NUMERICALMATHFUNCTIONEVALUATION_H
 #define ROPENTURNS_R_NUMERICALMATHFUNCTIONEVALUATION_H
 
-#include "ROpenTurns.h"
-#include <openturns/NumericalMathEvaluationImplementation.hxx>
-
 BEGIN_NAMESPACE_OPENTURNS
 
     class RNumericalMathEvaluationImplementation

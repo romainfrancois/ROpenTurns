@@ -25,8 +25,7 @@
     METHOD( CLASS, set ## WHAT )
 
 #include <openturns/OT.hxx>
-
-// #include "DistributionCollection.h"
+#include <openturns/NumericalMathEvaluationImplementation.hxx>
 #include "RNumericalMathFunctionEvaluation.h"
 
 using namespace OT ;
