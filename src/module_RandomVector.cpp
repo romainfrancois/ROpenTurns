@@ -10,7 +10,7 @@ RCPP_MODULE(RandomVector){
         .method( "show", &ROpenTurns::show<RandomVector> )
         .method( "getDimension", &RandomVector::getDimension )
         .method( "getRealization", &RandomVector::getRealization )
-        .method( "getSample", &RandomVector::getNumericalSample )
+        .method( "getSample", &RandomVector::getSample )
     ;
     function( "Compare___RandomVector___double" , &ROpenTurns::Compare___RandomVector___double ) ;
     
