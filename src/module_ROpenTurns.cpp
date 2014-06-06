@@ -7,6 +7,7 @@ namespace ROpenTurns{
     NumericalSample (NumericalSample::*NumericalSample__rank_1)(const UnsignedLong) const  = &NumericalSample::rank ;
     NumericalSample (NumericalSample::*NumericalSample__sort_0)(void) const = &NumericalSample::sort ;
     NumericalSample (NumericalSample::*NumericalSample__sort_1)(const UnsignedLong) const  = &NumericalSample::sort ;
+    void (NumericalSample::*NumericalSample__scale_NumericalPoint)(const NumericalPoint&) = &NumericalSample::scale ;
 } // namespace ROpenTurns
 
     
@@ -67,7 +68,7 @@ RCPP_MODULE(OpenTurns){
         .method( "sort", ROpenTurns::NumericalSample__sort_1 )
         METHOD(NumericalSample, sortAccordingToAComponent)
         METHOD(NumericalSample, find)
-        METHOD(NumericalSample, scale)
+        .method("scale", ROpenTurns::NumericalSample__scale_NumericalPoint)
         METHOD(NumericalSample, storeToTemporaryFile)  
         .method( "getMarginal", &ROpenTurns::NumericalSample__getMarginal )
     ;
