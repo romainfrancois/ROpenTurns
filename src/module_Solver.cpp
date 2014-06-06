@@ -1,10 +1,9 @@
-// :folding=explicit:
 #include "ROpenTurns.h"
     
 namespace ROpenTurns{
                             
-    NumericalScalar (SolverImplementation::*NumericalScalar_solve_0)(const NumericalMathFunction&, const NumericalScalar,const NumericalScalar, const NumericalScalar) = &SolverImplementation::solve ;
-    NumericalScalar (SolverImplementation::*NumericalScalar_solve_1)(const NumericalMathFunction&, const NumericalScalar,const NumericalScalar, const NumericalScalar, const NumericalScalar,const NumericalScalar) = &SolverImplementation::solve ;
+    NumericalScalar (SolverImplementation::*NumericalScalar_solve_0)(const NumericalMathFunction&, const NumericalScalar,const NumericalScalar, const NumericalScalar) const = &SolverImplementation::solve ;
+    NumericalScalar (SolverImplementation::*NumericalScalar_solve_1)(const NumericalMathFunction&, const NumericalScalar,const NumericalScalar, const NumericalScalar, const NumericalScalar,const NumericalScalar) const = &SolverImplementation::solve ;
     
 }
 
@@ -12,7 +11,7 @@ RCPP_MODULE(Solver){
     
     class_<SolverImplementation>( "SolverImplementation" )
         .constructor()
-        .constructor<NumericalScalar,NumericalScalar,UnsignedLong>()
+        .constructor<NumericalScalar,NumericalScalar,NumericalScalar,UnsignedLong>()
         // TODO: operator==
         SHOW(SolverImplementation)
         .method( "solve", ROpenTurns::NumericalScalar_solve_0 )
