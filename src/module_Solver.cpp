@@ -38,7 +38,7 @@ RCPP_MODULE(Solver){
     ;
     class_<Solver>( "Solver" )
         .factory( &ROpenTurns::new_Solver )
-        .constructor<NumericalScalar,NumericalScalar,UnsignedLong>()
+        .constructor<NumericalScalar,NumericalScalar,NumericalScalar,UnsignedLong>()
         // TODO: operator==
         METHOD_GET_SET(Solver, AbsoluteError)
         METHOD_GET_SET(Solver, RelativeError)
