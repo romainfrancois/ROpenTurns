@@ -20,7 +20,7 @@
 #ifndef ROPENTURNS_R_NUMERICALMATHFUNCTIONEVALUATION_H
 #define ROPENTURNS_R_NUMERICALMATHFUNCTIONEVALUATION_H
 
-namespace OT {
+namespace OT{
 
     class RNumericalMathEvaluationImplementation
         : public NumericalMathEvaluationImplementation
