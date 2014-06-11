@@ -24,8 +24,8 @@
     METHOD( CLASS, get ## WHAT ) \
     METHOD( CLASS, set ## WHAT )
 
-#include <openturns/OT.hxx>
-#include <openturns/NumericalMathEvaluationImplementation.hxx>
+#include <OT.hxx>
+#include <NumericalMathEvaluationImplementation.hxx>
 #include "RNumericalMathFunctionEvaluation.h"
 
 using namespace OT ;
@@ -126,11 +126,11 @@ BEGIN_NAMESPACE_OPENTURNS
     typedef Collection<Copula> CopulaCollection ;
 END_NAMESPACE_OPENTURNS
 
-#include <openturns/NumericalPoint.hxx>
-#include <openturns/CorrelationMatrix.hxx>
-#include <openturns/OTDistribution.hxx>
-#include <openturns/Interval.hxx>
-#include <openturns/OTUncertainty.hxx>
+#include <NumericalPoint.hxx>
+#include <CorrelationMatrix.hxx>
+#include <OTDistribution.hxx>
+#include <Interval.hxx>
+#include <OTUncertainty.hxx>
 
 RCPP_EXPOSED_ENUM_NODECL(OT::Arcsine::ParameterSet)
 RCPP_EXPOSED_ENUM_NODECL(OT::Beta::ParameterSet)
