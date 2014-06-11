@@ -20,7 +20,7 @@
 #ifndef ROPENTURNS_R_NUMERICALMATHFUNCTIONEVALUATION_H
 #define ROPENTURNS_R_NUMERICALMATHFUNCTIONEVALUATION_H
 
-namespace OT{
+BEGIN_NAMESPACE_OPENTURNS
 
     class RNumericalMathEvaluationImplementation
         : public NumericalMathEvaluationImplementation
@@ -67,6 +67,6 @@ namespace OT{
 
     } ;
 
-}
+END_NAMESPACE_OPENTURNS
 
 #endif
