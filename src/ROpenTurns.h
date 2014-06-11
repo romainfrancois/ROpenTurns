@@ -28,7 +28,6 @@
 #include "NumericalMathEvaluationImplementation.hxx"
 #include "RNumericalMathFunctionEvaluation.h"
 
-using namespace OT ;
 using namespace Rcpp;
 
 namespace ROpenTurns{
